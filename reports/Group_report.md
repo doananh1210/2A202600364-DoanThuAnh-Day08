@@ -57,8 +57,6 @@ Pipeline xử lý câu hỏi ngoài phạm vi docs bằng grounded prompt 4 quy 
 
 **Điểm test nội bộ ước tính:** 8 Full (8×10) + 2 Partial (2×5) = 90/100
 
-**Điểm grading chính thức:** _Chờ cập nhật sau 17:00 khi nhận được `grading_questions.json`_
-
 ---
 
 ## 4. Điều nhóm học được
