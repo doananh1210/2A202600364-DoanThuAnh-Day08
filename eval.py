@@ -472,8 +472,35 @@ def generate_grading_log(
 
 
 # =============================================================================
-# MAIN
+# GRADING PIPELINE
 # =============================================================================
+
+def run_grading_pipeline():
+    """Run the grading pipeline and generate logs."""
+    grading_questions_path = Path(__file__).parent / "data" / "grading_questions.json"
+    log_path = Path(__file__).parent / "logs" / "grading_run.json"
+
+    with open(grading_questions_path, "r", encoding="utf-8") as f:
+        questions = json.load(f)
+
+    log = []
+    for q in questions:
+        result = rag_answer(q["question"], retrieval_mode="hybrid", verbose=False)
+        log.append({
+            "id": q["id"],
+            "question": q["question"],
+            "answer": result["answer"],
+            "sources": result["sources"],
+            "chunks_retrieved": len(result["chunks_used"]),
+            "retrieval_mode": result["config"]["retrieval_mode"],
+            "timestamp": datetime.now().isoformat(),
+        })
+
+    with open(log_path, "w", encoding="utf-8") as f:
+        json.dump(log, f, ensure_ascii=False, indent=2)
+
+    print(f"Grading log saved to {log_path}")
+
 if __name__ == "__main__":
     print("=" * 60)
     print("Sprint 4: Evaluation & Scorecard")
@@ -528,6 +555,8 @@ if __name__ == "__main__":
         config=VARIANT_CONFIG,
         output_path=LOGS_DIR / "grading_run.json",
     )
+
+    run_grading_pipeline()
 
     print(f"\n\n{'='*60}")
     print("✓ Sprint 4 HOÀN THÀNH!")
