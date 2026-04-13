@@ -57,6 +57,24 @@ Pipeline xử lý câu hỏi ngoài phạm vi docs bằng grounded prompt 4 quy 
 
 **Điểm test nội bộ ước tính:** 8 Full (8×10) + 2 Partial (2×5) = 90/100
 
+| ID   | Câu hỏi tóm tắt                                      | Điểm raw | Kỹ năng RAG                  |
+|------|----------------------------------------------------|----------|-----------------------------|
+| gq01 | SLA P1 thay đổi thế nào so với phiên bản trước?    | 10       | Freshness & version reasoning |
+| gq02 | Remote + VPN + giới hạn thiết bị?                  | 10       | Multi-document synthesis    |
+| gq03 | Flash Sale + đã kích hoạt → hoàn tiền không?       | 10       | Exception completeness      |
+| gq04 | Store credit được bao nhiêu %?                    | 8        | Specific numeric fact       |
+| gq05 | Contractor cần Admin Access — điều kiện?          | 10       | Multi-section retrieval     |
+| gq06 | P1 lúc 2am → cấp quyền tạm thời thế nào?          | 12       | Cross-doc multi-hop         |
+| gq07 | Mức phạt vi phạm SLA P1 là bao nhiêu?             | 10       | Abstain / anti-hallucination |
+| gq08 | Báo nghỉ phép 3 ngày = nghỉ ốm 3 ngày không?      | 10       | Disambiguation              |
+| gq09 | Mật khẩu đổi mấy ngày, nhắc trước mấy ngày?       | 8        | Multi-detail FAQ            |
+| gq10 | Chính sách v4 áp dụng đơn trước 01/02 không?      | 10       | Temporal scoping            |
+
+
+**Điểm grading chính thức:** 98
+
+=======
+
 ---
 
 ## 4. Điều nhóm học được
@@ -68,3 +86,4 @@ Pipeline xử lý câu hỏi ngoài phạm vi docs bằng grounded prompt 4 quy 
 3. **Evaluation bằng số liệu là bắt buộc, không thể vibe check.** Nếu không có scorecard A/B, nhóm sẽ không phát hiện q07 bị Reranker loại nhầm chunk bổ trợ — vấn đề chỉ hiện ra khi so sánh baseline vs variant trên nhiều câu.
 
 ---
+

@@ -373,6 +373,13 @@ def rag_answer(
         return {
             "answer": "Không đủ dữ liệu trong tài liệu hiện có để trả lời câu hỏi này.",
             "sources": [],
+            "chunks_used": [],
+            "config": {
+                "retrieval_mode": retrieval_mode,
+                "top_k_search": top_k_search,
+                "top_k_select": top_k_select,
+                "use_rerank": use_rerank,
+            }
         }
 
     # Step 2: Rerank (optional)
@@ -394,6 +401,13 @@ def rag_answer(
     return {
         "answer": answer,
         "sources": sources,
+        "chunks_used": candidates,
+        "config": {
+            "retrieval_mode": retrieval_mode,
+            "top_k_search": top_k_search,
+            "top_k_select": top_k_select,
+            "use_rerank": use_rerank,
+        }
     }
 
 
