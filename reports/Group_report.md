@@ -1,12 +1,12 @@
 # Group Report — Lab Day 08: RAG Pipeline
 
-**Tên nhóm:** Nhóm 63
+**Tên nhóm:** Nhóm 63  
 **Thành viên:**
-- Trinh Ke Tien (Tech Lead)
-- Doan Thu Anh (Retrieval Owner)
-- Truong Duc Thai (Eval Owner — Baseline)
-- Dang Phan Bao Huy (Eval Owner — Variant & A/B)
-- Mai Anh Quan (Documentation Owner)
+- 2A202600500 - Trịnh Kế Tiến (Tech Lead)
+- 2A202600364 - Đoàn Thư Ánh (Retrieval Owner)
+- 2A202600328 - Trương Đức Thái (Eval Owner — Baseline)
+- 2A202600475 - Mai Văn Quân (Eval Owner — Variant & A/B)
+- 2A202600461 - Đặng Phan Bảo Huy (Documentation Owner)
 
 **Ngày nộp:** 2026-04-13
 
@@ -70,5 +70,3 @@ Pipeline xử lý câu hỏi ngoài phạm vi docs bằng grounded prompt 4 quy 
 3. **Evaluation bằng số liệu là bắt buộc, không thể vibe check.** Nếu không có scorecard A/B, nhóm sẽ không phát hiện q07 bị Reranker loại nhầm chunk bổ trợ — vấn đề chỉ hiện ra khi so sánh baseline vs variant trên nhiều câu.
 
 ---
-
-
